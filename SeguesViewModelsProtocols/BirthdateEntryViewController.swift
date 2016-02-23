@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import SegueManager
 
-class BirthdateEntryViewController : UIViewController {
+class BirthdateEntryViewController : UIViewController, SeguePerformer {
+
+  lazy var segueManager: SegueManager = { SegueManager(viewController: self) }()
+
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    super.prepareForSegue(segue, sender: sender)
+    segueManager.prepareForSegue(segue)
+  }
 
   var viewModel: String!
 
@@ -22,17 +30,10 @@ class BirthdateEntryViewController : UIViewController {
   }
 
   @IBAction func continueAction(sender: UITextField) {
-    self.performSegueWithIdentifier(R.segue.birthdateEntryViewController.showSummary, sender: nil)
-  }
-
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    guard let summaryVC = segue.destinationViewController as? SummaryViewController else {
-      // Should never happen!
-      return
-    }
-
     let summary = SummaryViewController.ViewModel(name: viewModel, birthdate: birthdatePicker.date)
 
-    summaryVC.viewModel = summary
+    self.performSegue(R.segue.birthdateEntryViewController.showSummary) { segue in
+      segue.destinationViewController.viewModel = summary
+    }
   }
 }

@@ -7,23 +7,23 @@
 //
 
 import UIKit
+import SegueManager
 
-class NameEntryViewController : UIViewController {
+class NameEntryViewController : UIViewController, SeguePerformer {
+
+  lazy var segueManager: SegueManager = { SegueManager(viewController: self) }()
+
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    super.prepareForSegue(segue, sender: sender)
+    segueManager.prepareForSegue(segue)
+  }
 
   @IBOutlet weak var nameTextField: UITextField!
 
   @IBAction func continueAction(sender: UITextField) {
-    guard let _ = nameTextField.text else { return }
+    guard let name = nameTextField.text else { return }
 
-    self.performSegueWithIdentifier(R.segue.nameEntryViewController.showBirthdateEntry, sender: nil)
-  }
-
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if let segue = R.segue.nameEntryViewController.showBirthdateEntry(segue: segue) {
-
-      // Should never happen!
-      guard let name = nameTextField.text else { return }
-
+    self.performSegue(R.segue.nameEntryViewController.showBirthdateEntry) { segue in
       segue.destinationViewController.viewModel = name
     }
   }

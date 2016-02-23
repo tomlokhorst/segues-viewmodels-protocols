@@ -1,24 +1,167 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4hn-bn-SSp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4hn-bn-SSp">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Enter your name-->
+        <scene sceneID="zyG-h1-6HA">
+            <objects>
+                <viewController id="2Ey-Zp-hIE" customClass="NameEntryViewController" customModule="SeguesViewModelsProtocols" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rrh-23-Pma"/>
+                        <viewControllerLayoutGuide type="bottom" id="53f-4o-XcC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I1P-Zu-X70">
+                        <rect key="frame" x="0.0" y="0.0" width="340" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="John" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Uc-Gy-ML2">
+                                <rect key="frame" x="16" y="80" width="308" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BrN-Ql-IaN">
+                                <rect key="frame" x="139" y="118" width="62" height="30"/>
+                                <state key="normal" title="Continue"/>
+                                <connections>
+                                    <action selector="continueAction:" destination="2Ey-Zp-hIE" eventType="touchUpInside" id="oYP-4n-Y4I"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2Uc-Gy-ML2" firstAttribute="top" secondItem="rrh-23-Pma" secondAttribute="bottom" constant="16" id="0Iy-wA-A3z"/>
+                            <constraint firstItem="BrN-Ql-IaN" firstAttribute="top" secondItem="2Uc-Gy-ML2" secondAttribute="bottom" constant="8" id="EVZ-Ph-c0X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2Uc-Gy-ML2" secondAttribute="trailing" id="MQn-wa-rpu"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="2Uc-Gy-ML2" secondAttribute="leading" id="RMJ-zV-0Cz"/>
+                            <constraint firstItem="BrN-Ql-IaN" firstAttribute="centerX" secondItem="I1P-Zu-X70" secondAttribute="centerX" id="cTS-h5-Rcd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Enter your name" id="mEQ-k7-9De"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="340" height="400"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="2Uc-Gy-ML2" id="JTk-bb-ed6"/>
+                        <segue destination="BvC-fw-qnD" kind="show" identifier="showBirthdateEntry" id="q8Q-oa-Wph"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n6Z-4N-bqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="745" y="333"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="zNU-xx-KSf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4hn-bn-SSp" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="340" height="400"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZGb-dP-7Qs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2Ey-Zp-hIE" kind="relationship" relationship="rootViewController" id="nQZ-Ex-3dw"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JPI-DL-LIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="319" y="333"/>
+        </scene>
+        <!--Enter your birthdate-->
+        <scene sceneID="bmx-go-fJL">
+            <objects>
+                <viewController id="BvC-fw-qnD" customClass="BirthdateEntryViewController" customModule="SeguesViewModelsProtocols" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="foa-MM-7M7"/>
+                        <viewControllerLayoutGuide type="bottom" id="olX-5t-nbo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hFa-T4-4zU">
+                        <rect key="frame" x="0.0" y="0.0" width="340" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi name!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNO-ta-tdr">
+                                <rect key="frame" x="136" y="80" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MB9-gP-fRZ">
+                                <rect key="frame" x="139" y="333" width="62" height="30"/>
+                                <state key="normal" title="Continue"/>
+                                <connections>
+                                    <action selector="continueAction:" destination="BvC-fw-qnD" eventType="touchUpInside" id="DiP-Ci-8TW"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="KDF-XL-mkV">
+                                <rect key="frame" x="10" y="109" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="477934896.672279">
+                                    <!--2016-02-23 15:41:36 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oNO-ta-tdr" firstAttribute="centerX" secondItem="hFa-T4-4zU" secondAttribute="centerX" id="Aum-6Z-ref"/>
+                            <constraint firstItem="KDF-XL-mkV" firstAttribute="top" secondItem="oNO-ta-tdr" secondAttribute="bottom" constant="8" id="NMu-xT-Qdl"/>
+                            <constraint firstItem="oNO-ta-tdr" firstAttribute="top" secondItem="foa-MM-7M7" secondAttribute="bottom" constant="16" id="Syr-zt-sjS"/>
+                            <constraint firstItem="MB9-gP-fRZ" firstAttribute="centerX" secondItem="hFa-T4-4zU" secondAttribute="centerX" id="W7L-j7-Usk"/>
+                            <constraint firstItem="MB9-gP-fRZ" firstAttribute="top" secondItem="KDF-XL-mkV" secondAttribute="bottom" constant="8" id="gSH-76-n2t"/>
+                            <constraint firstItem="KDF-XL-mkV" firstAttribute="centerX" secondItem="hFa-T4-4zU" secondAttribute="centerX" id="m5E-xW-VN9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Enter your birthdate" id="j2Z-nK-1j1"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="340" height="400"/>
+                    <connections>
+                        <outlet property="birthdatePicker" destination="KDF-XL-mkV" id="fbc-73-JTi"/>
+                        <outlet property="textLabel" destination="oNO-ta-tdr" id="C3B-OF-T8R"/>
+                        <segue destination="KJf-jQ-e4U" kind="show" identifier="showSummary" id="SQz-gA-6bD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H4n-iZ-PCj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1166" y="333"/>
+        </scene>
+        <!--Summary-->
+        <scene sceneID="aRo-Gi-Ogc">
+            <objects>
+                <viewController id="KJf-jQ-e4U" customClass="SummaryViewController" customModule="SeguesViewModelsProtocols" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jww-yy-HkZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="VuY-5g-ve7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f4m-1C-ZWa">
+                        <rect key="frame" x="0.0" y="0.0" width="340" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi name!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FND-IJ-PEO">
+                                <rect key="frame" x="136" y="80" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FND-IJ-PEO" firstAttribute="top" secondItem="Jww-yy-HkZ" secondAttribute="bottom" constant="16" id="rRb-3S-GJT"/>
+                            <constraint firstItem="FND-IJ-PEO" firstAttribute="centerX" secondItem="f4m-1C-ZWa" secondAttribute="centerX" id="t7K-tI-7Wc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Summary" id="6BY-s8-8OI"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="340" height="400"/>
+                    <connections>
+                        <outlet property="label" destination="FND-IJ-PEO" id="K9j-vO-p80"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PL3-VH-Iwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="333"/>
         </scene>
     </scenes>
 </document>

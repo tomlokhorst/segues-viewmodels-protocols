@@ -9,7 +9,9 @@
 import UIKit
 import SegueManager
 
-class BirthdateEntryViewController : SegueManagerViewController {
+class BirthdateEntryViewController : SegueManagerViewController, ViewModelContaining {
+
+  typealias ViewModelType = String!
 
   var viewModel: String!
 
@@ -25,8 +27,6 @@ class BirthdateEntryViewController : SegueManagerViewController {
   @IBAction func continueAction(sender: UITextField) {
     let summary = SummaryViewController.ViewModel(name: viewModel, birthdate: birthdatePicker.date)
 
-    self.performSegue(R.segue.birthdateEntryViewController.showSummary) { segue in
-      segue.destinationViewController.viewModel = summary
-    }
+    self.performSegue(R.segue.birthdateEntryViewController.showSummary, viewModel: summary)
   }
 }

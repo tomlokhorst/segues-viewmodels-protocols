@@ -16,8 +16,6 @@ class NameEntryViewController : SegueManagerViewController {
   @IBAction func continueAction(sender: UITextField) {
     guard let name = nameTextField.text else { return }
 
-    self.performSegue(R.segue.nameEntryViewController.showBirthdateEntry) { segue in
-      segue.destinationViewController.viewModel = name
-    }
+    self.performSegue(R.segue.nameEntryViewController.showBirthdateEntry, viewModel: name)
   }
 }

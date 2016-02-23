@@ -8,7 +8,9 @@
 
 import UIKit
 
-class SummaryViewController : UIViewController {
+class SummaryViewController : UIViewController, ViewModelContaining {
+
+  typealias ViewModelType = ViewModel!
 
   var viewModel: ViewModel!
 

@@ -15,17 +15,16 @@ class NameEntryViewController : UIViewController {
   @IBAction func continueAction(sender: UITextField) {
     guard let _ = nameTextField.text else { return }
 
-    self.performSegueWithIdentifier("showBirthdateEntry", sender: nil)
+    self.performSegueWithIdentifier(R.segue.nameEntryViewController.showBirthdateEntry, sender: nil)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if let birthdateEntryVC = segue.destinationViewController as? BirthdateEntryViewController
-      where segue.identifier == "showBirthdateEntry"
-    {
+    if let segue = R.segue.nameEntryViewController.showBirthdateEntry(segue: segue) {
+
       // Should never happen!
       guard let name = nameTextField.text else { return }
 
-      birthdateEntryVC.viewModel = name
+      segue.destinationViewController.viewModel = name
     }
   }
 }

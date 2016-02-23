@@ -22,7 +22,7 @@ class BirthdateEntryViewController : UIViewController {
   }
 
   @IBAction func continueAction(sender: UITextField) {
-    self.performSegueWithIdentifier("showSummary", sender: nil)
+    self.performSegueWithIdentifier(R.segue.birthdateEntryViewController.showSummary, sender: nil)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

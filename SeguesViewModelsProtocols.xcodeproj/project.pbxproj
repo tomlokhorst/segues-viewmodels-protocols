@@ -11,6 +11,7 @@
 		E28B85241C7D0246006812D9 /* BirthdateEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B85211C7D0246006812D9 /* BirthdateEntryViewController.swift */; };
 		E28B85251C7D0246006812D9 /* NameEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B85221C7D0246006812D9 /* NameEntryViewController.swift */; };
 		E28B85261C7D0246006812D9 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B85231C7D0246006812D9 /* SummaryViewController.swift */; };
+		E28B85291C7D0385006812D9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B85281C7D0385006812D9 /* R.generated.swift */; };
 		E2D0406D1C7CDCA90012D10A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D0406C1C7CDCA90012D10A /* AppDelegate.swift */; };
 		E2D040741C7CDCA90012D10A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2D040731C7CDCA90012D10A /* Assets.xcassets */; };
 		E2D040771C7CDCA90012D10A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D040751C7CDCA90012D10A /* LaunchScreen.storyboard */; };
@@ -40,6 +41,7 @@
 		E28B85211C7D0246006812D9 /* BirthdateEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdateEntryViewController.swift; sourceTree = "<group>"; };
 		E28B85221C7D0246006812D9 /* NameEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameEntryViewController.swift; sourceTree = "<group>"; };
 		E28B85231C7D0246006812D9 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		E28B85281C7D0385006812D9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		E2D040691C7CDCA90012D10A /* SeguesViewModelsProtocols.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeguesViewModelsProtocols.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2D0406C1C7CDCA90012D10A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2D040731C7CDCA90012D10A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				E2D0406C1C7CDCA90012D10A /* AppDelegate.swift */,
+				E28B85281C7D0385006812D9 /* R.generated.swift */,
 				E2D0409C1C7CE2960012D10A /* Main.storyboard */,
 				E2D040A51C7CE2AA0012D10A /* ViewControllers */,
 				E2D040A41C7CE29B0012D10A /* Resources */,
@@ -153,6 +156,7 @@
 			buildConfigurationList = E2D040911C7CDCA90012D10A /* Build configuration list for PBXNativeTarget "SeguesViewModelsProtocols" */;
 			buildPhases = (
 				C0329CE3DAF449DD9CB729C8 /* Check Pods Manifest.lock */,
+				E28B85271C7D0360006812D9 /* R.swift */,
 				E2D040651C7CDCA90012D10A /* Sources */,
 				E2D040661C7CDCA90012D10A /* Frameworks */,
 				E2D040671C7CDCA90012D10A /* Resources */,
@@ -320,6 +324,20 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		E28B85271C7D0360006812D9 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -329,6 +347,7 @@
 			files = (
 				E28B85251C7D0246006812D9 /* NameEntryViewController.swift in Sources */,
 				E2D0406D1C7CDCA90012D10A /* AppDelegate.swift in Sources */,
+				E28B85291C7D0385006812D9 /* R.generated.swift in Sources */,
 				E28B85241C7D0246006812D9 /* BirthdateEntryViewController.swift in Sources */,
 				E28B85261C7D0246006812D9 /* SummaryViewController.swift in Sources */,
 			);
